@@ -21,9 +21,10 @@ Amante da vida, entusiasta da tecnologia e de ajudar pessoas e animais.
 Abaixo tem alguns dos materiais que produzi, baseados nas experiências que vivi e implementando processos nos times por onde passei.
 
 ### 🚩Se quiser trocar uma ideia sobre TI, QA ou Tecnologia, entre em contato:
+📄[Currículo](https://github.com/FelipeSilva89/FelipeSilva89/blob/curriculum/cv.md)
+
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:f.rodrigo01@gmail.com)
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/felipebatata_)
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/felipe-silva89)
-#### - Curriculo
 
 ![Felipe GitHub stats](https://github-readme-stats.vercel.app/api?username=felipesilva89&show_icons=true&theme=dracula)
