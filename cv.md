@@ -77,5 +77,5 @@ Inglês: Nível técnico, com fluência em leitura e interpretação de document
 - TDD com Ruby on Rails, RSpec e Capybara (março de 2022)
 #### Alura
 - Governança de TI: Gestão de Requisitos no Contexto Ágil (maio de 2025)
-- Engenharia de requisitos: da demanda ao gerenciamento (maio de 2025)
+- Engenharia de Requisitos: Da Demanda ao Gerenciamento (maio de 2025)
 
