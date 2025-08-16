@@ -1,0 +1,203 @@
+1. O que é o JMeter
+
+É uma ferramenta gratuita para testes de performance, carga e estresse.
+
+Desenvolvida pela Apache Foundation, funciona em Java.
+
+Serve para simular vários usuários acessando um sistema ao mesmo tempo, medindo desempenho e identificando gargalos.
+
+💡 Na prática:
+Pensa que o JMeter é como um "robô multiplicado" que acessa seu sistema exatamente como os usuários fariam — só que você controla quantos robôs vão de uma vez e por quanto tempo.
+
+2. Para que serve
+
+O JMeter ajuda a responder perguntas importantes:
+
+“Meu sistema aguenta 500 usuários ao mesmo tempo sem travar?”
+
+“A API continua respondendo rápido mesmo quando tem muito acesso?”
+
+“Se o tráfego dobrar, o tempo de resposta continua aceitável?”
+
+“Onde está o gargalo — no servidor, na rede ou no banco?”
+
+💡 Exemplo real no trabalho:
+Você trabalha numa empresa de delivery. Antes de uma campanha de desconto, você cria um teste no JMeter simulando 2.000 pedidos simultâneos para garantir que o site não caia no horário de pico.
+
+3. Por que usar o JMeter e não outra
+
+Vantagens:
+
+Gratuito e muito usado no mercado (vários tutoriais, fóruns, exemplos).
+
+Suporta muitos protocolos (HTTP, HTTPS, FTP, Banco de Dados, SOAP, REST).
+
+Fácil integração com CI/CD (Jenkins, Azure DevOps, GitLab CI).
+
+Possui muitos plugins para relatórios, gráficos e integrações.
+
+Quando é melhor que outras:
+
+Se você precisa testar múltiplos tipos de sistemas, não só API.
+
+Se a empresa já usa ou tem scripts prontos em JMeter (comum em empresas grandes).
+
+Quando quer algo robusto e que possa rodar em larga escala.
+
+💡 Comparando rápido:
+
+K6 é ótimo para APIs e integração, mas não suporta tantos protocolos.
+
+Locust é bom para quem quer codar em Python, mas menor comunidade.
+
+JMeter é “pau pra toda obra” — funciona em quase todo tipo de teste de carga.
+
+4. Como funciona (visão prática)
+
+O JMeter trabalha com planos de teste (Test Plan) compostos de vários elementos:
+
+Thread Group
+
+Representa os usuários virtuais (threads).
+
+Você define:
+
+Quantos usuários simultâneos (ex.: 100).
+
+Tempo de subida (ramp-up).
+
+Quantas vezes cada usuário repete o teste.
+
+Samplers
+
+Ação que o usuário virtual vai executar (ex.: HTTP Request para /login ou /checkout).
+
+Assertions
+
+Validações para confirmar que a resposta foi correta (status 200, texto esperado etc.).
+
+Listeners
+
+Elementos para ver resultados (tabelas, gráficos, logs).
+
+Timers
+
+Intervalos entre ações, para simular comportamento humano.
+
+💡 Cenário de exemplo para você praticar
+Imagina que você precisa testar uma API de login de um sistema interno:
+
+Thread Group:
+
+50 usuários virtuais
+
+Ramp-up: 10 segundos
+
+Repetir: 5 vezes
+
+HTTP Request:
+
+Método: POST
+
+URL: https://meusistema.com/api/login
+
+Body: {"usuario": "teste", "senha": "1234"}
+
+HTTP Header Manager:
+
+Content-Type: application/json
+
+Assertion:
+
+Verificar se a resposta contém "status": "sucesso"
+
+Listener:
+
+Adicionar “View Results Tree” e “Summary Report” para ver resultados.
+
+Rodando isso, você já vai ter:
+
+Tempo médio de resposta.
+
+Taxa de requisições por segundo.
+
+Porcentagem de erros.
+
+5. Testar desempenho de uma API de login
+
+📍 Situação: Antes de liberar um novo sistema, você quer saber se o endpoint de login aguenta muitos acessos.
+🔹 Configuração no JMeter:
+
+Thread Group: 100 usuários simultâneos, ramp-up 20s.
+
+HTTP Request: POST /api/login
+
+Body: {"usuario":"teste","senha":"1234"}
+
+Assertions: Status 200 + texto "sucesso".
+🔹 O que você descobre: Tempo médio de resposta e taxa de erro com muitos logins juntos.
+
+6. Simular compras no e-commerce
+
+📍 Situação: Black Friday chegando, precisa validar se o site aguenta.
+🔹 Configuração no JMeter:
+
+Thread Group: 500 usuários, ramp-up 60s.
+
+Steps:
+
+GET /home
+
+GET /produto/123
+
+POST /checkout (JSON com dados do carrinho).
+
+Timers: Pequenos intervalos para simular navegação.
+🔹 O que você descobre: Se páginas carregam rápido e sem erro com muitos clientes.
+
+7. Testar API com dados diferentes (parametrização)
+
+📍 Situação: Precisa simular requisições de vários usuários diferentes.
+🔹 Configuração no JMeter:
+
+CSV Data Set Config: Arquivo usuarios.csv com lista de logins/senhas.
+
+HTTP Request: Lê dados do CSV para autenticar.
+🔹 O que você descobre: Se a API responde corretamente para entradas variadas e sob carga.
+
+8. Testar performance de consulta ao banco via JDBC
+
+📍 Situação: O sistema está lento, suspeita que é o banco de dados.
+🔹 Configuração no JMeter:
+
+JDBC Connection Configuration: Dados de conexão.
+
+JDBC Request: Consulta SELECT * FROM pedidos WHERE data > '2025-01-01'
+🔹 O que você descobre: Tempo que o banco leva para responder sob carga.
+
+9. Monitorar estabilidade com teste de longa duração
+
+📍 Situação: Quer saber se o sistema aguenta uso constante por horas.
+🔹 Configuração no JMeter:
+
+Thread Group: 50 usuários.
+
+Duração: 8 horas.
+
+Requisições: Múltiplos endpoints importantes.
+🔹 O que você descobre: Se a performance degrada com o tempo (memory leak, lentidão acumulada, etc.).
+
+📌 Resumo para sua anotação:
+O JMeter serve para:
+
+Simular acessos simultâneos.
+
+Testar APIs, sites e bancos de dados.
+
+Usar dados dinâmicos para simular cenários reais.
+
+Monitorar estabilidade e detectar gargalos.
+
+
+Links Úteis:
+Documentação JMeter: https://jmeter.apache.org/usermanual/index.html
